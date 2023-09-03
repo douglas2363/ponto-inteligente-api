@@ -1,25 +1,21 @@
 package com.kazale.pontointeligente.api.repositories;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.security.NoSuchAlgorithmException;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
-
 import com.kazale.pontointeligente.api.entities.Empresa;
 import com.kazale.pontointeligente.api.entities.Funcionario;
 import com.kazale.pontointeligente.api.enums.PerfilEnum;
 import com.kazale.pontointeligente.api.utils.PasswordUtils;
+import org.junit.After;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-@RunWith(SpringRunner.class)
+import java.security.NoSuchAlgorithmException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 @SpringBootTest
 @ActiveProfiles("test")
 public class FuncionarioRepositoryTest {
@@ -33,7 +29,7 @@ public class FuncionarioRepositoryTest {
 	private static final String EMAIL = "email@email.com";
 	private static final String CPF = "24291173474";
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		Empresa empresa = this.empresaRepository.save(obterDadosEmpresa());
 		this.funcionarioRepository.save(obterDadosFuncionario(empresa));

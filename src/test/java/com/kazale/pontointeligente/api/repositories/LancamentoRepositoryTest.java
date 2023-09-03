@@ -1,30 +1,26 @@
 package com.kazale.pontointeligente.api.repositories;
 
-import static org.junit.Assert.assertEquals;
-
-import java.security.NoSuchAlgorithmException;
-import java.util.Date;
-import java.util.List;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
-
 import com.kazale.pontointeligente.api.entities.Empresa;
 import com.kazale.pontointeligente.api.entities.Funcionario;
 import com.kazale.pontointeligente.api.entities.Lancamento;
 import com.kazale.pontointeligente.api.enums.PerfilEnum;
 import com.kazale.pontointeligente.api.enums.TipoEnum;
 import com.kazale.pontointeligente.api.utils.PasswordUtils;
+import org.junit.After;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.test.context.ActiveProfiles;
 
-@RunWith(SpringRunner.class)
+import java.security.NoSuchAlgorithmException;
+import java.util.Date;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
 @SpringBootTest
 @ActiveProfiles("test")
 public class LancamentoRepositoryTest {
@@ -40,7 +36,7 @@ public class LancamentoRepositoryTest {
 	
 	private Long funcionarioId;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		Empresa empresa = this.empresaRepository.save(obterDadosEmpresa());
 		

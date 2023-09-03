@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
@@ -34,7 +35,7 @@ public class LancamentoServiceTest {
 	@Autowired
 	private LancamentoService lancamentoService;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		BDDMockito
 				.given(this.lancamentoRepository.findByFuncionarioId(Mockito.anyLong(), Mockito.any(PageRequest.class)))
